@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Cable } from './cable';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ActionCableService {
   private cables: {[s: string]: Cable} = {};
 
