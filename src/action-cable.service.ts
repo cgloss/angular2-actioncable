@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core'
+import { Injectable, Injector } from '@angular/core';
 import { Cable } from './cable';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ActionCableService {
-  private cables: {[s: string]: Cable} = {};
 
+@Injectable()
+export class ActionCableService {
+  constructor(
+    public injector: Injector,
+  ) { }
+  private cables: {[s: string]: Cable} = {};
   /**
    * Open a new ActionCable connection to the url. Any number of connections can be created.
    */
